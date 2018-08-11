@@ -5,13 +5,18 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define _STRINGIFY(s) #s
+#define STRINGIFY(s) _STRINGIFY(s)
+
 // The Wren semantic version number components.
 #define WREN_VERSION_MAJOR 0
 #define WREN_VERSION_MINOR 1
 #define WREN_VERSION_PATCH 0
 
 // A human-friendly string representation of the version.
-#define WREN_VERSION_STRING "0.1.0"
+#define WREN_VERSION_STRING (STRINGIFY(WREN_VERSION_MAJOR) "." \
+                             STRINGIFY(WREN_VERSION_MINOR) "." \
+                             STRINGIFY(WREN_VERSION_PATCH))
 
 // A monotonically increasing numeric representation of the version number. Use
 // this if you want to do range checks over versions.
