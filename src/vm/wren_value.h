@@ -410,7 +410,12 @@ struct sObjClass
 typedef struct
 {
   Obj obj;
+
+#if WREN_FOREIGN_ALIGN
+  uint8_t data[FLEXIBLE_ARRAY] __attribute__((aligned(WREN_FOREIGN_ALIGN)));
+#else
   uint8_t data[FLEXIBLE_ARRAY];
+#endif
 } ObjForeign;
 
 typedef struct

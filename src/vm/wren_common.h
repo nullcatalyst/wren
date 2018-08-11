@@ -113,6 +113,10 @@
 // field index*.
 #define MAX_FIELDS 255
 
+// Sometimes it is important to align the foreign data to some arbitrary byte
+// boundary. 
+#define WREN_FOREIGN_ALIGN 16
+
 // Use the VM's allocator to allocate an object of [type].
 #define ALLOCATE(vm, type) \
     ((type*)wrenReallocate(vm, NULL, 0, sizeof(type)))
